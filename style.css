@@ -66,6 +66,10 @@ body{
 .site nav a:hover{color:var(--fg)}
 .site nav a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--accent)}
 
+.site--home{justify-content:flex-end}
+@media (max-width:34rem){ .site--home{justify-content:flex-start} }
+[tabindex="-1"]:focus{outline:none}
+
 /* ---- home masthead ---- */
 .masthead{
   display:grid;

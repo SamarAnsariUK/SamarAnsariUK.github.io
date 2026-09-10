@@ -38,8 +38,10 @@
   btn.addEventListener('click', function () {
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
-    var brand = document.querySelector('.site .brand');
-    if (brand) { brand.focus({ preventScroll: true }); }
+    var anchor = document.querySelector('.site .brand') ||
+                 document.getElementById('top') ||
+                 document.querySelector('.site nav a');
+    if (anchor) { anchor.focus({ preventScroll: true }); }
   });
 
   update();
