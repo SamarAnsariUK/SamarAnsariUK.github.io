@@ -46,3 +46,23 @@
 
   update();
 })();
+
+/* Footer date. Replaces the hardcoded date with the file's own Last-Modified
+   value when the server supplies one. If the server sends no Last-Modified
+   header the browser substitutes the current time, which would make every
+   page claim to be updated today; the plausibility check below rejects that
+   and leaves the date written in the HTML untouched. */
+(function () {
+  var targets = document.querySelectorAll('.updated');
+  if (!targets.length) return;
+
+  var d = new Date(document.lastModified);
+  if (isNaN(d.getTime())) return;
+  if (Math.abs(Date.now() - d.getTime()) < 120000) return;  // fabricated, ignore
+
+  var months = ['January','February','March','April','May','June',
+                'July','August','September','October','November','December'];
+  var text = d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
+
+  for (var i = 0; i < targets.length; i++) { targets[i].textContent = text; }
+})();

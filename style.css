@@ -73,7 +73,7 @@ body{
 /* ---- home masthead ---- */
 .masthead{
   display:grid;
-  grid-template-columns:minmax(0,1fr) 13rem;
+  grid-template-columns:minmax(0,1fr) 10rem;
   gap:clamp(1.75rem,4vw,3rem);
   align-items:end;
   padding-bottom:1.4rem;
@@ -87,7 +87,8 @@ body{
   letter-spacing:-.03em;
   margin:0 0 .7rem;
 }
-.post{color:var(--dim);font-size:1rem;margin:0;max-width:40ch}
+.post{color:var(--dim);font-size:1rem;margin:0 0 .35rem;max-width:40ch}
+.post:last-of-type{margin-bottom:0}
 .portrait{margin:0}
 .portrait img{
   display:block;
@@ -99,7 +100,7 @@ body{
 }
 @media (max-width:44rem){
   .masthead{grid-template-columns:1fr;align-items:start}
-  .portrait{max-width:9.5rem;order:-1;margin-bottom:.5rem}
+  .portrait{max-width:8.5rem;order:-1;margin-bottom:.5rem}
 }
 
 /* ---- page headings ---- */
