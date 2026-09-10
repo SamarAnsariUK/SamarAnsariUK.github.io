@@ -225,3 +225,33 @@ footer.site-foot{
   margin-top:clamp(3rem,8vw,4.5rem);
 }
 footer.site-foot p{max-width:none;margin:0 0 .3rem}
+
+/* ---- back to top button (created by site.js) ---- */
+.to-top{
+  position:fixed;
+  right:clamp(.9rem,3vw,1.75rem);
+  bottom:calc(clamp(.9rem,3vw,1.75rem) + env(safe-area-inset-bottom,0px));
+  width:2.9rem;
+  height:2.9rem;
+  display:grid;
+  place-items:center;
+  padding:0;
+  border:1px solid var(--line);
+  border-radius:2px;
+  background:var(--bg);
+  color:var(--accent);
+  cursor:pointer;
+  box-shadow:0 1px 3px rgba(18,23,27,.10);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(.4rem);
+  transition:opacity .18s ease, transform .18s ease, visibility .18s;
+  z-index:50;
+}
+.to-top.is-visible{opacity:1;visibility:visible;transform:none}
+.to-top:hover{border-color:var(--accent);background:var(--tint)}
+.to-top:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media (prefers-reduced-motion: reduce){
+  .to-top{transition:none}
+  html{scroll-behavior:auto}
+}
